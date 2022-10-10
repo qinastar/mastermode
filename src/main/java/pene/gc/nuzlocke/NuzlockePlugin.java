@@ -40,6 +40,6 @@ public final class NuzlockePlugin extends Plugin {
                 .register(this);
 
         // Log a plugin status message.
-        this.getLogger().info("The Nuzlocke has been enabled.");
+        this.getLogger().info("大师模式已经开启.");
     }
 }

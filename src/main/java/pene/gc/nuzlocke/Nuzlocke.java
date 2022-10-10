@@ -20,7 +20,7 @@ public class Nuzlocke {
             long avatarGuid = targetPlayer.getTeamManager().getCurrentCharacterGuid(); //I can't lose it later
             if(targetPlayer.getTeamManager().getCurrentTeamInfo().size() == 1){
                 //The game is handling it some other way but I'll keep it as a second barrier
-                Grasscutter.getLogger().info("You lost, but I can't do it to you because GC might broke in meantime :)");
+                Grasscutter.getLogger().info("你输了，但我不能这么对你因为 YuiServer 可能会在此期间崩溃:)");
                 return;
             }
             List<String> args = new ArrayList<>();
@@ -34,10 +34,10 @@ public class Nuzlocke {
             targetPlayer.getScene().broadcastPacket(new PacketAvatarDelNotify(avatarGuid));
 
             if(result.wasAcknowledged()){
-                Grasscutter.getLogger().info(String.format("%s was deleted", deadAvatar.getAvatarData().getName()));
-                CommandHandler.sendMessage(targetPlayer, String.format("You lost %s", deadAvatar.getAvatarData().getName()));
+                Grasscutter.getLogger().info(String.format("%s 已经飞升", deadAvatar.getAvatarData().getName()));
+                CommandHandler.sendMessage(targetPlayer, String.format("你的朋友已经离开了你： %s", deadAvatar.getAvatarData().getName()));
             } else{
-                Grasscutter.getLogger().error("Character was no deleted, database error");
+                Grasscutter.getLogger().error("出现了数据库错误");
             }
         } catch (Exception e){
             e.printStackTrace();
